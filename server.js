@@ -20,7 +20,15 @@ const db = new sqlite3.Database(path.join(__dirname, 'database.db'), (err) => {
 });
 
 // Create table if not exists
-db.run('CREATE TABLE IF NOT EXISTS entries (id INTEGER PRIMARY KEY, name TEXT, email TEXT, age INTEGER)', (err) => {
+db.run(`
+    CREATE TABLE IF NOT EXISTS entries (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        email TEXT,
+        age INTEGER,
+        address TEXT,
+        gender TEXT
+    )`, (err) => {
     if (err) {
         console.error(err.message);
     }
@@ -28,8 +36,8 @@ db.run('CREATE TABLE IF NOT EXISTS entries (id INTEGER PRIMARY KEY, name TEXT, e
 
 // API route
 app.post('/submit', (req, res) => {
-    const { name, email, age } = req.body;
-    db.run('INSERT INTO entries (name, email, age) VALUES (?, ?, ?)', [name, email, age], function(err) {
+    const { name, email, age, address, gender } = req.body;
+    db.run('INSERT INTO entries (name, email, age, address, gender) VALUES (?, ?, ?, ?, ?)', [name, email, age, address, gender], function(err) {
         if (err) {
             return res.status(500).json({ message: 'Error: ' + err.message });
         }
