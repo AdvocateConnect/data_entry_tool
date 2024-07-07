@@ -1,11 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #333;
 }
 
 .container {
@@ -13,46 +15,69 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 500px;
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 h1 {
+    color: #007bff;
+}
+
+#dataEntrySection, #dataDisplaySection {
     margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+    width: 100%;
+}
+
+#dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#dataTable th, #dataTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#dataTable th {
+    background-color: #007bff;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
-    margin-top: 15px;
-    color: #555;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-input, textarea, select {
+input, textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-textarea {
-    resize: vertical;
-    height: 80px;
 }
 
 button {
     background-color: #007bff;
-    color: #fff;
+    color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
-    width: 100%;
 }
 
 button:hover {
@@ -60,8 +85,20 @@ button:hover {
 }
 
 #response {
-    margin-top: 20px;
-    color: #006400;
-    font-weight: bold;
+    margin-top: 10px;
+    color: green;
     text-align: center;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
 }
